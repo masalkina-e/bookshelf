@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;   
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7de;
+}
+
+.inner-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    background-color: #f7f7f7de;
+}
+
+.container-about-book {
+    margin: 0 -5px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container-books {
+    display: flex;
+    flex-direction: column;
+}
+
+.books {
+    border-radius: 10px;
+    padding-top: 30px;
+    width: calc(100%/4 - 20px);
+    background-color: white;
+    box-shadow: 1px 1px 3px #ccc;
+    text-align: center;
+    line-height: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-book {
+    width: 150px;
+    height: 170px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.443);
+    margin: 0 20px;
+}
+
+h1 {
+    font-size: 55px;
+    font-weight: 800;
+    padding-bottom: 70px;
+}
+
+.book-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 20px;
+}
+
+.book-year {
+    font-size: 13px;
+    color: gray;
+    font-weight: 400;
+    flex-grow: 1;
+    margin: 0 20px; 
+}
+
+.book-authors {
+    background-color: #caf6e8;
+    border-radius: 10px;
+    font-size: 11px;
+    color: #264a3d;
+    font-weight: 500;
+    padding: 0 5px;
+    margin: 0 20px 10px;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-top: 1px solid rgb(200, 195, 195);
+}
+
+.button {
+    width: calc(100% / 2);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(96 90 90);
+    padding: 10px 0 10px;
+}
+
+.button:hover {
+    color: rgb(139 133 133);
+    cursor: pointer;
+}
+
+.button-border-right {
+    border-right: 1px solid rgb(200, 195, 195);
+}
+
+@media (max-width: 1024px) {
+    .books {
+        width: calc(100%/3 - 20px);   
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .books {
+        width: calc(100%/2 - 20px); 
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 640px) {
+    .books {
+        width: 90%; 
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+
