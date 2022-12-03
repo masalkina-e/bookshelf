@@ -17,11 +17,9 @@ html {
 
 .container-about-book {
     margin: 0 -5px;
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* align-items: center; */
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -39,7 +37,6 @@ html {
     box-shadow: 1px 1px 3px #ccc;
     text-align: center;
     line-height: 20px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,7 +206,6 @@ h1 {
     justify-content: flex-end;
 }
 
-
 @media (max-width: 1024px) {
     .books {
         width: calc(100%/3 - 20px);   
@@ -230,8 +226,8 @@ h1 {
         text-align: center;
     }
 
-    .form-newbook {
-        width: 100%;
+    .modal-window-container {
+        width: 90%;
     }
 
     .input-add {
@@ -256,5 +252,4 @@ h1 {
         text-align: center;
     }
 }
-
 

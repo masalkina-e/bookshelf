@@ -1,9 +1,11 @@
 const modalWindow = document.getElementById('modal-window')
 const openModalButton = document.getElementById('button-add')
 const closeModalButton = document.getElementById('button-close-form')
+const myError = document.getElementById("error")
 
 function closeModal() {
     modalWindow.style.display = "none"
+    myError.innerHTML = ""
 }
 
 function openModel() {
@@ -14,7 +16,7 @@ function openModel() {
 closeModalButton.addEventListener('click', closeModal)
 openModalButton.addEventListener('click', openModel)
 
-const books = [
+let books = [
     {
       id:1,
       title: 'Design Patterns: Elements of Reusable Object-Oriented Software',
