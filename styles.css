@@ -5,6 +5,7 @@
 html {
     font-family: 'Open Sans', sans-serif;
     background-color: #f7f7f7de;
+    position: relative;
 }
 
 .inner-container {
@@ -123,23 +124,15 @@ h1 {
     border-right: 1px solid rgb(200, 195, 195);
 }
 
-.form-newbook {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    width: 60%;
-    margin: 0 0 50px;
-    padding: 50px 40px;
-    border-radius: 10px;
-    border: 1px solid rgb(139 133 133);
-}
-
 .button-add {
     background-color: white;
     border: 2px solid #caf6e8;
     padding: 20px 30px;
     border-radius: 10px;
     margin-bottom: 50px;
+    font-size: 30px;
+    color: gray;
+    cursor: pointer;
 }
 
 .input-add {
@@ -157,7 +150,7 @@ h1 {
 }
 
 .button-save {
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     border: none;
     background-color: rgb(222 222 222);
@@ -175,15 +168,45 @@ h1 {
 .error {
     color: red;
     text-align: center;
+    padding-bottom: 40px;
 }
 
-.close-icon {
+.modal-window {
     display: none;
-    width: 35px;
+    background-color: #00000067;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
 }
 
-.add-icon {
-    width: 35px;
+.modal-window-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60%;
+    padding: 50px 40px 0;
+    border-radius: 10px;
+    border: 1px solid rgb(139 133 133);
+    background: white;
+}
+
+.close-form {
+    padding: 5px 10px;
+    background: white;
+    color: #403a3a;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button-close-flex {
+    display: flex;
+    justify-content: flex-end;
 }
 
 

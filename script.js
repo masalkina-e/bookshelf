@@ -1,3 +1,19 @@
+const modalWindow = document.getElementById('modal-window')
+const openModalButton = document.getElementById('button-add')
+const closeModalButton = document.getElementById('button-close-form')
+
+function closeModal() {
+    modalWindow.style.display = "none"
+}
+
+function openModel() {
+    modalWindow.style.display = "flex"
+    cleanForm()
+}
+
+closeModalButton.addEventListener('click', closeModal)
+openModalButton.addEventListener('click', openModel)
+
 const books = [
     {
       id:1,
@@ -31,13 +47,13 @@ const books = [
       image:
       'https://images-na.ssl-images-amazon.com/images/I/51WD-F3GobL._SX379_BO1,204,203,200_.jpg'
     }
-    ]
+]
 
-    const container = document.getElementById('container')
+const container = document.getElementById('container')
 
-    function renderBooks() {
-      container.innerHTML =""
-      books.forEach((book) => {
+function renderBooks() {
+    container.innerHTML =""
+    books.forEach((book) => {
         container.innerHTML += `
         <div class="books">
           <img src="${book.image}" class="image-book"/img>
@@ -50,72 +66,81 @@ const books = [
           <button onclick="deleteBook(${book.id})" class="button-edit button-edit-delete">Удалить</button>
           </div> 
         </div>  
-      `
-      })
-    }
+        `
+    })
+}
 
-    function cleanForm() {
-      document.getElementById("title").value = ""
-      document.getElementById("authors").value = ""
-      document.getElementById("year").value = ""
-      document.getElementById("image").value = ""
-    }
+    // <button id=`button-delete-${book.id}` class="button-edit button-edit-delete">Удалить</button>
+    
+    // books.forEach((book) => {
+    //   const deleteButton = document.getElementById("button-delete-${book.id}")
 
-    let isOpen = false
+    //   function makeDelete() {
+    //     deleteBook(book.id)
+    //   }
 
-    function addBook() {
-      const newBook = document.getElementById("newBookForm")
-      const addIcon = document.getElementById("addIcon")
-      const closeIcon = document.getElementById("closeIcon")
+    //   deleteButton.addEventListener('click', makeDelete)
+    // })
 
-      if (isOpen) {
-        newBook.style.display = "none"
-        addIcon.style.display = "flex"
-        closeIcon.style.display = "none"
-        isOpen = false
-      } else {
-        newBook.style.display = "flex"
-        addIcon.style.display = "none"
-        closeIcon.style.display = "flex"
+function cleanForm() {
+    document.getElementById("title").value = ""
+    document.getElementById("authors").value = ""
+    document.getElementById("year").value = ""
+    document.getElementById("image").value = ""
+}
 
-        cleanForm()
-        isOpen = true
-      }   
-    }
+function saveToLocalStorage() {
+    const booksJson = JSON.stringify(books)
+    localStorage.setItem('books', booksJson)
+}
 
-    function deleteBook(id) {
-      const book = books.find((book) => {
+function deleteBook(id) {
+    const book = books.find((book) => {
         return book.id === id
-      })
+    })
 
-      const bookIndex = books.indexOf(book)
-      books.splice(bookIndex, 1)
-      renderBooks()
+    const bookIndex = books.indexOf(book)
+    books.splice(bookIndex, 1)
+    renderBooks()
+
+    saveToLocalStorage()
+
     }
 
-    function saveBook() {
-      const myError = document.getElementById("error")
-      const titleValue = document.getElementById("title").value
-      const authorsValue = document.getElementById("authors").value
-      const yearValue = document.getElementById("year").value
-      const imageValue = document.getElementById("image").value
+function saveBook() {
+    const myError = document.getElementById("error")
+    const titleValue = document.getElementById("title").value
+    const authorsValue = document.getElementById("authors").value
+    const yearValue = document.getElementById("year").value
+    const imageValue = document.getElementById("image").value
 
-      if (titleValue.length > 0 && authorsValue.length > 0 && yearValue.length > 0 && imageValue.length > 0) {
-
+    if (titleValue.length > 0 && authorsValue.length > 0 && yearValue.length > 0 && imageValue.length > 0) {
         const book = {
-          title: titleValue,
-          authors: authorsValue,
-          year: yearValue,
-          image: imageValue
+            title: titleValue,
+            authors: authorsValue,
+            year: yearValue,
+            image: imageValue
         }
-  
+        
         books.push(book)
         renderBooks()
+        closeModal()
+        myError.innerHTML = ""
 
-      } else {
+        saveToLocalStorage()
+        
+    } else {
         myError.innerHTML = "Необходимо заполнить все поля"
         return
-      }
     }
+}
 
-    renderBooks()
+const saveBookButton = document.getElementById("button-save")
+saveBookButton.addEventListener('click', saveBook)
+
+const booksJson = localStorage.getItem('books')
+if (booksJson) {
+    books = JSON.parse(booksJson)
+}
+
+renderBooks()

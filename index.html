@@ -12,19 +12,30 @@
     <body>
 
         <div class="inner-container">
-            <button onclick="addBook()" class="button-add"><img src="add_icon.png" id="addIcon" class="add-icon"><img src="close_icon.png" id="closeIcon" class="close-icon"></button>
-            <div class="form-newbook" id="newBookForm">
-                <p class="title-add">Название книги</p>
-                <input id="title" class="input-add"></input>
-                <p class="title-add">Автор книги</p>
-                <input id="authors" class="input-add"></input>
-                <p class="title-add">Год издания книги</p>
-                <input id="year" class="input-add"></input>
-                <p class="title-add">Ссылка на изображение</p>
-                <input id="image" class="input-add"></input>
-                <button onclick="saveBook()" class="button-save">Сохранить</button>
-                <p class="error" id="error"></p>
+        
+            <button class="button-add" id="button-add">+</button>
+
+            <div class="modal-window" id="modal-window">
+                <div class="modal-window-container">
+
+                    <div class="button-close-flex">
+                        <button class="close-form" id="button-close-form">X</button>
+                    </div>
+
+                    <p class="title-add">Название книги</p>
+                    <input id="title" class="input-add"></input>
+                    <p class="title-add">Автор книги</p>
+                    <input id="authors" class="input-add"></input>
+                    <p class="title-add">Год издания книги</p>
+                    <input id="year" class="input-add"></input>
+                    <p class="title-add">Ссылка на изображение</p>
+                    <input id="image" class="input-add"></input>
+                    <button id="button-save" class="button-save">Сохранить</button>
+                    <p class="error" id="error"></p>
+                    
+                </div>
             </div>
+            
             <h1>Книжная полка</h1>
             <div class="container-about-book" id="container"></div>    
         </div>
