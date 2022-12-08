@@ -1,6 +1,6 @@
-const modalWindow = document.getElementById('modal-window')
-const openModalButton = document.getElementById('button-add')
-const closeModalButton = document.getElementById('button-close-form')
+const modalWindow = document.getElementById("modal-window")
+const openModalButton = document.getElementById("button-add")
+const closeModalButton = document.getElementById("button-close-form")
 const myError = document.getElementById("error")
 
 function closeModal() {
@@ -15,6 +15,7 @@ function openModel() {
 
 closeModalButton.addEventListener('click', closeModal)
 openModalButton.addEventListener('click', openModel)
+
 
 let books = [
     {
@@ -62,27 +63,28 @@ function renderBooks() {
           <p class="book-title">${book.title}</p>
           <p class="book-year">${book.year}</p>
           <p class="book-authors">${book.authors}</p>
-
+          
           <div class="container-buttons">
-          <button class="button-edit button-edit-change">Изменить</button>
-          <button onclick="deleteBook(${book.id})" class="button-edit button-edit-delete">Удалить</button>
+          <button id="button-edit" class="button-edit button-edit-change">Изменить</button>
+          <button id="button-delete-${book.id}" class="button-edit button-edit-delete">Удалить</button>
           </div> 
         </div>  
         `
     })
 }
 
-    // <button id=`button-delete-${book.id}` class="button-edit button-edit-delete">Удалить</button>
+    // <button onclick="deleteBook(${book.id})" class="button-edit button-edit-delete">Удалить</button>
+
     
-    // books.forEach((book) => {
-    //   const deleteButton = document.getElementById("button-delete-${book.id}")
+    books.forEach((book) => {
+      const deleteButton = document.getElementById(`button-delete-${book.id}`)
 
-    //   function makeDelete() {
-    //     deleteBook(book.id)
-    //   }
+      function makeDelete() {
+        deleteBook(book.id)
+      }
 
-    //   deleteButton.addEventListener('click', makeDelete)
-    // })
+      deleteButton.addEventListener('click', makeDelete)
+    })
 
 function cleanForm() {
     document.getElementById("title").value = ""
@@ -96,6 +98,38 @@ function saveToLocalStorage() {
     localStorage.setItem('books', booksJson)
 }
 
+
+const modalWindowEdit = document.getElementById("modal-window-edit")
+const openModalButtonEdit = document.getElementById("button-edit")
+const closeModalButtonEdit = document.getElementById("button-close-form-edit")
+
+function closeModalEdit() {
+    modalWindowEdit.style.display = "none" 
+}
+
+function openModelEdit() {
+    modalWindowEdit.style.display = "flex"   
+}
+
+closeModalButtonEdit.addEventListener('click', closeModalEdit)
+openModalButtonEdit.addEventListener('click', openModelEdit)
+
+
+// let isOpen = false
+        
+// function openModalEdit() {
+//     const modalWindowEdit = document.getElementById('modal-window-edit')
+    
+//     if (isOpen) {
+//         modalWindowEdit.style.display = "none"
+//         isOpen = false
+//     } else {
+//         modalWindowEdit.style.display = "flex"
+//         isOpen = true
+//     }
+// }
+
+
 function deleteBook(id) {
     const book = books.find((book) => {
         return book.id === id
@@ -106,8 +140,25 @@ function deleteBook(id) {
     renderBooks()
 
     saveToLocalStorage()
+}
 
-    }
+// function updateBook(id) {
+//     const newBook = {
+//         id:
+//         title: 
+//         authors: 
+//         year: 
+//         image: 
+//     }
+
+//     const book = books.find((book) => {
+//         return book.id === id
+//     })
+
+//     const bookIndex = books.indexOf(book)
+//     books.splice(bookIndex, 1, newBook)
+//     renderBooks()
+// }
 
 function saveBook() {
     const myError = document.getElementById("error")
@@ -128,7 +179,6 @@ function saveBook() {
         renderBooks()
         closeModal()
         myError.innerHTML = ""
-
         saveToLocalStorage()
         
     } else {

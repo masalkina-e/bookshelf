@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>bookshelf</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" type="text/css" href="reset.css"> 
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,6 @@
                     <div class="button-close-flex">
                         <button class="close-form" id="button-close-form">X</button>
                     </div>
-
                     <p class="title-add">Название книги</p>
                     <input id="title" class="input-add"></input>
                     <p class="title-add">Автор книги</p>
@@ -36,7 +36,27 @@
             </div>
             
             <h1>Книжная полка</h1>
-            <div class="container-about-book" id="container"></div>    
+            <div class="container-about-book" id="container"></div>
+
+            <div class="modal-window-edit" id="modal-window-edit">
+                <div class="modal-window-container">
+                    <div class="button-close-flex">
+                        <button class="close-form" id="button-close-form-edit">X</button>
+                    </div>
+                    <p class="title-add">Название книги</p>
+                    <input id="title" class="input-add"></input>
+                    <p class="title-add">Автор книги</p>
+                    <input id="authors" class="input-add"></input>
+                    <p class="title-add">Год издания книги</p>
+                    <input id="year" class="input-add"></input>
+                    <p class="title-add">Ссылка на изображение</p>
+                    <input id="image" class="input-add"></input>
+                    <button id="button-save" class="button-save">Сохранить</button>
+                    <!-- <p class="error" id="error"></p> -->
+                </div> 
+            </div>
+            
+               
         </div>
         
         <script src="/script.js"></script>

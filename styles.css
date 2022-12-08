@@ -180,6 +180,18 @@ h1 {
     align-items: center;
 }
 
+.modal-window-edit {
+    display: none;
+    background-color: #00000067;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal-window-container {
     display: flex;
     flex-direction: column;
@@ -228,6 +240,8 @@ h1 {
 
     .modal-window-container {
         width: 90%;
+        position: absolute;
+        top: 150px;
     }
 
     .input-add {
