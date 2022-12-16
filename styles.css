@@ -52,13 +52,7 @@ html {
 }
 
 span {
-    background-color: #caf6e8;
-    border-radius: 10px;
-    font-size: 11px;
-    color: #264a3d;
-    font-weight: 500;
-    padding: 0 5px;
-    margin: 0 20px 10px;
+    color: red;
 }
 
 h1 {
@@ -106,6 +100,7 @@ h1 {
     padding: 15px 0;
     border: none;
     background-color: white;
+    cursor: pointer;
 }
 
 .button-edit-change {
@@ -196,7 +191,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 60%;
+    width: 50%;
     padding: 50px 40px 0;
     border-radius: 10px;
     border: 1px solid rgb(139 133 133);
